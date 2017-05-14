@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework1</title>
+
+    <script>
+        var array = ["14", 1, "a", 4, 9, "나", 0, true, 6, "d", null, "", 8];
+        var numberArr, stringArr;
+
+        numberArr = [];
+        stringArr = [];
+
+        for (var i = 0; i < array.length; i++) {
+            if (typeof array[i] === "number") {
+                numberArr.push(array[i]);
+            } else if (typeof array[i] === "string") {
+                stringArr.push(array[i]);
+            }
+        }
+
+        console.log(numberArr); // [ 1, 4, 9, 0, 6, 8 ]
+        console.log(stringArr); // [ "14", "a", "나", "d", "" ]
+    </script>
+</head>
+<body>
+
+</body>
+</html>
