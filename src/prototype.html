@@ -1,0 +1,13 @@
+<script>
+    var parent = {name: "test object"};
+
+    var child = Object.create(parent);
+
+    child.value = "child";
+
+    console.dir(child);
+    console.log(child.__proto__ === parent); // true
+
+    console.log(child.hasOwnProperty('name')); // false
+    console.log(child.hasOwnProperty('value')); // true
+</script>

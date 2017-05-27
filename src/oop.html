@@ -1,0 +1,43 @@
+<script>
+    function Sample() {
+        console.log(this);
+    }
+
+    Sample(); // this는 window
+    new Sample(); // this는 Sample로 생성된 객체
+
+    console.log(Sample());
+    console.log(new Sample());
+
+    var test = function (n) {
+        console.log('#' + n);
+        console.dir(this); // this는 함수를 참조하는 객체의 참조
+    };
+
+    var obj = {
+        testMethod: test,
+
+        callParam: function (fnc, n) {
+            fnc(n);
+        },
+
+        callFnc: function (n) {
+            var fnc = this.testMethod;
+
+            fnc(n);
+            this.testMethod(n + 1);
+        }
+    };
+
+    test(1); //#1 : window
+
+    new test(2); //#2 : test object
+
+    obj.testMethod(3); //#3 : obj
+
+    new obj.testMethod(4); //#4 : test object
+
+    obj.callParam(test, 5); //#5 : window
+
+    obj.callFnc(6); //#6, #7 : window, obj
+</script>
