@@ -1,0 +1,15 @@
+<script>
+    var objA = {};
+    var objB = {};
+
+    objA.valueO = 'O';
+    objA.__proto__.valueP = 'P';
+
+    console.log(objA.valueO); // O
+    console.log(objB.valueO); // undefined
+
+    console.log(objA.valueP); // P
+    console.log(objB.valueP); // P (because valueP of Object is P, objB's __proto__ is Object)
+
+    console.log(objA.__proto__ === objB.__proto__); // true
+</script>

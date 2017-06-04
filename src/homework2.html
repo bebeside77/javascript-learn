@@ -1,0 +1,36 @@
+<script>
+    var calculator = (function () {
+        var value = 0;
+
+        function init(initValue) {
+            value = initValue;
+        }
+
+        function add() {
+            for (var i = 0; i < arguments.length; i++) {
+                value += arguments[i];
+            }
+
+            return value;
+        }
+
+        function subtract() {
+            for (var i = 0; i < arguments.length; i++) {
+                value -= arguments[i];
+            }
+
+            return value;
+        }
+
+        return {
+            init : init,
+            add : add,
+            subtract : subtract
+        }
+    })();
+
+    calculator.init(10);
+    console.log(calculator.add(1, 2, 1)); // 14
+    console.log(calculator.subtract(3, 2)); // 9
+    console.log(calculator.add(2)); // 11
+</script>
